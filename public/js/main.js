@@ -1,20 +1,24 @@
 (() => {
   const socket = io();
 
-  let messageList = document.querySelector('url'),
+  let messageList = document.querySelector('ul'),
       chatForm = document.querySelector('form'),
       chatMessage = chatForm.querySelector('.message');
 
   function appendMessage(msg) {
-    debugger;
+    // debugger;
+    let newMsg = `<li>${msg.message}</li>`;
+    messageList.innerHTML += newMsg;
   }
 
   function appendDiscMessage(msg) {
-    debugger;
+    // debugger;
+    let newMsg = `<li>${msg}</li>`;
+    messageList.innerHTML += newMsg;
   }
 
   function handleSendMessage(e) {
-    e.preventDefault(); // block default behaviour 
+    e.preventDefault(); // block default behaviour
     debugger;
   }
 
