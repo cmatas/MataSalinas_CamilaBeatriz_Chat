@@ -1,18 +1,29 @@
 const express = require('express'); // require is like include
 const app = express();
+// after socket.io
+const io = require('socket.io')(); // activate the chat plugin
 
-app.get('/', (req, res)=> {
-  res.sendFile(__dirname + '/index.html'); // route to the page
-});
-// contact page include
-app.get('/contact', (req, res)=> {
-  res.sendFile(__dirname + '/contact.html'); // route to the page
-});
-// prtfolio page include
-app.get('/portfolio', (req, res)=> { // <-- you need to put the kind of extension
-  res.sendFile(__dirname + '/portfolio.html'); // route to the page
-});
+// server up static files
+app.use(express.static('public'));
 
-app.listen(3000, ()=> {
+// add routes
+app.use(require('./routes/index'));
+app.use(require('./routes/contact'));
+app.use(require('./routes/portfolio'));
+
+const server = app.listen(3000, ()=> {
   console.log('listening in port 3000');
+});
+
+io.attach(server);
+
+io.on('connection', socket => { // function (socket) {...}
+  console.log('a user has connected!');
+  io.emit('chat message', { for : 'everyone', message : `${socket.id} is here!`})
+
+  socket.on('disconnect', () => {
+    console.log('a user disconnected');
+
+    io.emit('disconnect message', `${socket.id} has left the building`);
+  });
 });
