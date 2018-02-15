@@ -3,15 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Socket IO Chat with Node!</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	<input type="text" class="nickname" placeholder="What is your nickname?">
-	<ul id="messages"></ul>
-	<form>
-		<input class="message" type="text" id="m" autocomplete="off">
-		<button>send</button>
-	</form>
+	<div class="container">
+		<div class="row header">
+			<h1>Welcome 2 Annoyimus</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 avtzon">
+				<img src="images/avatar.png" alt="">
+				<input type="text" class="nickname" placeholder="How would you like to be called nickname?">
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 ">
+				<div class="row messagesite">
+					<ul id="messages"></ul>
+				</div>
+				<div class="row">
+					<form>
+						<input class="message" type="text" id="m" autocomplete="off">
+						<button>send</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div><!-- container end -->
   <script src="/socket.io/socket.io.js"></script><!-- rather have it at the top -->
   <script src="js/main.js"></script>
 </body>
