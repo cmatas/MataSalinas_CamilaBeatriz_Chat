@@ -20,18 +20,24 @@ body {
 
 .container {
 	height: 80%;
-	img {
-		margin: 0 auto;
-		padding: 10px;
-	}
 }
 
 .header {
 	padding: 20px;
+	h1 {
+		text-align: center;
+		margin: 0 auto;
+		color: #ECF0F1;
+	}
+	h2 {
+		text-align: center;
+		margin: 0 auto;
+		color: #ECF0F1;
+	}
 }
 
 .messagesite {
-	height: 100vh;
+	height: 70vh;
 	background: $background1;
 	background: $background2;
 	background: $background3;
@@ -41,17 +47,25 @@ body {
 	-moz-box-shadow:	inset 0 0 20px #EBDEF0;
 	-webkit-box-shadow:	inset 0 0 20px #EBDEF0;
 	box-shadow:	inset 0 0 20px #EBDEF0;
+	// overflow-y: scroll;
+	transition: 0.5s ease-in;
+	&:hover {
+		overflow-y: scroll;
+	}
 }
 
 .avtzon {
 	background: #F0F3F4;
-	height: 100vh;
+	// height: 80vh;
+	padding: 20px;
 	img {
+		display: block;
 		margin: 0 auto;
 	}
 	.nickname {
 		width: 100%;
 		height: 30px;
+		margin-top: 20px;
 	}
 }
 
@@ -65,8 +79,9 @@ form {
 	input {
 		border: 0;
 		padding: 10px;
-		width: 89%;
+		width: 90%;
 		margin-right: 0.5%;
+		border-radius: 10px
 	}
 	button {
 		width: 9%;
@@ -81,8 +96,10 @@ form {
 	margin: 0;
 	padding: 0;
 	li {
+		font-family: $century;
 		margin: 20px;
 		padding: 5px 10px;
+		background: rgba(247,249,249,0.5);
 	}
 	li:nth-child(odd) {
 		background: #eee;
